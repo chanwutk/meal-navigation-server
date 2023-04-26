@@ -33,7 +33,7 @@ app.get('/directions', (req, res) => {
       fetch(direction([lon1, lat1], [lon2, lat2]))
         .then(response => response.json())
     )
-  ).then(jsons => res.send(JSON.stringify(jsons)));
+  ).then(jsons => res.json(jsons));
 
 })
 

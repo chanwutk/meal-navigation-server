@@ -29,9 +29,11 @@ app.get('/directions', (req, res) => {
 
   Promise.all([...new Array(nEnd)]
     .map((_, i) => req.query['end' + i].split(',').map(parseFloat))
-    .map(([lon2, lat2]) => 
-      fetch(direction([lon1, lat1], [lon2, lat2]))
+    .map(([lat2, lon2]) => {
+      console.log(lat2, lon2);
+      return fetch(direction([lon1, lat1], [lon2, lat2]))
         .then(response => response.json())
+    }
     )
   ).then(jsons => res.json(jsons));
 

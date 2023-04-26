@@ -10,6 +10,13 @@ function direction(from, to) {
   return `${base_url}?api_key=${key}&start=${from.join(',')}&end=${to.join(',')}`;
 }
 
+app.use((_req, res, next) => {
+  res.header('Access-Control-Allow-Origin', "*");
+  res.header('Access-Control-Allow-Headers', "*");
+  next();
+});
+
+
 app.get('/directions', (req, res) => {
   const [lat1, lon1] = req.query.start.split(',').map(parseFloat);
   const nEnd = parseInt(req.query.nend ?? 1);

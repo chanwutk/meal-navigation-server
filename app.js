@@ -11,8 +11,8 @@ function direction(from, to) {
 }
 
 app.get('/directions', (req, res) => {
-  const [lat1, lon1] = req.query.loc1.split(',').map(parseFloat);
-  const [lat2, lon2] = req.query.loc2.split(',').map(parseFloat);
+  const [lat1, lon1] = req.query.start.split(',').map(parseFloat);
+  const [lat2, lon2] = req.query.end.split(',').map(parseFloat);
 
   fetch(direction([lon1, lat1], [lon2, lat2]))
     .then(response => response.json())

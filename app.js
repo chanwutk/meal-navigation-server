@@ -1,10 +1,10 @@
 import express from 'express';
 
 const app = express();
-const port = 3000;
+const port = = process.env.PORT || 80;
 
 const base_url = 'https://api.openrouteservice.org/v2/directions/driving-car';
-const key = process.env['key']
+const key = process.env.key;
 
 function direction(from, to) {
   return `${base_url}?api_key=${key}&start=${from.join(',')}&end=${to.join(',')}`;

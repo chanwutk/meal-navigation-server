@@ -16,7 +16,7 @@ app.get('/directions', (req, res) => {
 
   fetch(direction([lon1, lat1], [lon2, lat2]))
     .then(response => response.json())
-    .then(jsonData => res.send(jsonData));
+    .then(jsonData => res.json(jsonData));
 })
 
 app.listen(port, () => {

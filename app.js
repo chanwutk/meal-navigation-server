@@ -1,7 +1,7 @@
 import express from 'express';
 
 const app = express();
-const port = = process.env.PORT || 80;
+const port = process.env.PORT || 80;
 
 const base_url = 'https://api.openrouteservice.org/v2/directions/driving-car';
 const key = process.env.key;
